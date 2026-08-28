@@ -1,0 +1,20 @@
+{
+  "name": "openamber",
+  "description": "OpenAmber",
+  "version": "0.0.1",
+  "license": "GNUv3",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "docs:dev": "vuepress dev docs",
+    "docs:update-package": "npx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "2.0.0-rc.30",
+    "@vuepress/theme-default": "2.0.0-rc.132",
+    "sass-embedded": "^1.103.1",
+    "vue": "^3.5.42",
+    "vuepress": "2.0.0-rc.30"
+  }
+}
