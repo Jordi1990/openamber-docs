@@ -3,6 +3,8 @@ import { defineUserConfig } from 'vuepress'
 import { viteBundler } from '@vuepress/bundler-vite'
 
 export default defineUserConfig({
+  base: '/openamber-docs/',
+
   lang: 'nl-NL',
 
   title: 'OpenAmber',
