@@ -23,3 +23,98 @@
 .vp-home > .vp-features {
   order: 3;
 }
+
+// Configuratietabellen en navigatiekaarten
+.theme-default-content {
+  table {
+    display: table;
+    width: 100%;
+    margin: 1.25rem 0 2rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--c-border, #e2e8f0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+    th {
+      background-color: var(--c-bg-light, #f8fafc);
+      color: var(--c-text, #1e293b);
+      font-weight: 600;
+      text-align: left;
+      padding: 0.75rem 0.85rem;
+      border-bottom: 2px solid var(--c-border, #e2e8f0);
+      border-right: 1px solid var(--c-border, #e2e8f0);
+      white-space: nowrap;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    td {
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid var(--c-border, #e2e8f0);
+      border-right: 1px solid var(--c-border, #e2e8f0);
+      vertical-align: top;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      code {
+        font-size: 0.82rem;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        word-break: break-all;
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: rgba(125, 125, 125, 0.025);
+    }
+  }
+
+  .config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2.5rem;
+
+    .config-card {
+      display: block;
+      padding: 1.25rem;
+      background: var(--c-bg-light, #f8fafc);
+      border: 1px solid var(--c-border, #e2e8f0);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: var(--c-brand, #3b82f6);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+        color: var(--c-brand, #2563eb);
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--c-text-quote, #64748b);
+        line-height: 1.4;
+      }
+    }
+  }
+}

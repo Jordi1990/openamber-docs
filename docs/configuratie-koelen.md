@@ -4,42 +4,42 @@ title: Koelen
 
 # Koelen
 
-Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
+Met de koelfunctie kan de OpenAmber warmtepomp het afgiftesysteem (bijv. vloerverwarming of ventilatorconvectoren) voeden met koud water om het binnenklimaat in de zomer te koelen.
+
+::: danger Condensatierisico bij vloerkoeling
+Bij het koelen via vloerverwarming mag de aanvoertemperatuur nooit onder het dauwpunt zakken. Stel bij vloerkoeling de doeltemperatuur **nooit lager in dan 18°C**, tenzij een gecertificeerde dauwpuntbewaker is geïnstalleerd die de circulatie tijdig onderbreekt!
+:::
 
 ## Werkwijze voor veilig inregelen
 
-Volg bij koelen deze volgorde:
+Volg bij het inregelen van de koelfunctie deze volgorde:
 
-1. Koelmodus kiezen (`select.cool_mode_select`).
-2. Koelsetpoint of extern setpoint kiezen.
-3. Start en stop delta samen afstemmen.
-4. Vermogensmodus afstemmen.
-5. Daarna pas PID finetunen op de geavanceerde pagina.
+1. Kies de juiste koelmodus (`select.cool_mode_select`): intern setpoint of extern dauwpunt-gestuurd.
+2. Stel het koelsetpoint veilig in (minimaal 18°C bij vloerverwarming).
+3. Stem start- en stopdelta op elkaar af om pendelen te voorkomen.
+4. Begrens het compressorvermogen om te snelle temperatuurschommelingen te dempen.
+5. Pas eventueel de koel-PID aan in het geavanceerde menu bij overmatige schommelingen.
 
-Let op: bij systemen met vloerverkoeling altijd rekening houden met dauwpunt en condensatierisico.
+---
 
 ## Categorie: Algemeen
 
 ![Koelen algemeen](/images/instellingen-koelen-algemeen.jpg)
 
-| Setting | Home Assistant entiteit | Functie |
-| --- | --- | --- |
-| Koelen vermogen | `select.cool_compressor_mode` | Max compressorvermogen bij koelen. Opties: Beperkt, Zeer laag, Laag, Gemiddeld, Verhoogd, Hoog, Maximaal. Te laag kan onvoldoende koelvermogen geven; te hoog kan korte cycli geven. |
-| Start delta (°C) | `number.compressor_start_delta_cooling` | Verschil met setpoint om compressor te starten tijdens koelen. Kleinere waarde start eerder; grotere waarde geeft rustiger gedrag. Te laag kan pendelen geven. |
-| Stop delta (°C) | `number.compressor_stop_delta_cooling` | Verschil met setpoint om compressor te stoppen tijdens koelen. Te laag geeft korte cycli, te hoog geeft overkoeling en comfortverlies. |
+| Instelling | Opties / Bereik | Standaard | Home Assistant entiteit | Beschrijving |
+| :-- | :-- | :-- | :-- | :-- |
+| **Koelen vermogen** | Beperkt / Zeer laag / Laag / Gemiddeld / Verhoogd / Hoog / Maximaal | Maximaal | `select.cool_compressor_mode` | Begrenzing van het maximale compressorvermogen tijdens koelen. Een te hoge stand kan leiden tot snelle onderschrijding van de condensatiegrens en korte cycli; een te lage stand geeft trage koeling. |
+| **Start delta (°C)** | 0.1 t/m 10.0 °C (stap 0.1) | 3.0 °C | `number.compressor_start_delta_cooling` | Aantal graden dat de watertemperatuur boven het actieve koelsetpoint moet stijgen voordat de compressor start. |
+| **Stop delta (°C)** | 0.1 t/m 10.0 °C (stap 0.1) | 5.0 °C | `number.compressor_stop_delta_cooling` | Aantal graden dat de watertemperatuur onder het koelsetpoint mag zakken voordat de compressor stopt. |
+
+---
 
 ## Categorie: Setpoint
 
 ![Koelen setpoint](/images/instellingen-koelen-setpoint.jpg)
 
-| Setting | Home Assistant entiteit | Functie |
-| --- | --- | --- |
-| Koelmodus | `select.cool_mode_select` | Kies Fixed of Extern setpoint. Bij intern setpoint regelt OpenAmber zelf de koeltemperatuur. Bij extern setpoint is een externe bron (bijv. Home Assistant) leidend. |
-| Setpoint (°C) | `number.cooling_setpoint_number` | Doeltemperatuur voor koelen. Alleen actief bij intern setpoint modus. Houd rekening met comfort, luchtvochtigheid en condensatiegrens. |
-| Extern setpoint (°C) | `number.manual_setpoint` | Koel setpoint bij extern setpoint. Typische toepassing is dynamische regeling op dauwpunt of energietarief. Te lage waarde kan condensatie en overkoeling veroorzaken. |
-
-Praktisch advies:
-
-1. Gebruik `Intern setpoint` voor een eenvoudige basisopstelling.
-2. Gebruik `Extern setpoint` voor geavanceerde Home Assistant logica, bijvoorbeeld dauwpunt-gestuurd koelen.
-3. Houd bij dauwpuntregeling altijd een veiligheidsmarge aan.
+| Instelling | Opties / Bereik | Standaard | Home Assistant entiteit | Beschrijving |
+| :-- | :-- | :-- | :-- | :-- |
+| **Koelmodus** | Intern setpoint / Extern setpoint | Intern setpoint | `select.cool_mode_select` | Keuze tussen interne vaste temperatuurregeling of externe sturing via Home Assistant. Gebruik `Intern setpoint` voor een eenvoudige, autonome opstelling en `Extern setpoint` voor geavanceerde regelingen (bijvoorbeeld dynamisch net boven het actuele dauwpunt). |
+| **Setpoint (°C)** | 5 t/m 25 °C (stap 1) | 7 °C | `number.cooling_setpoint_number` | Doeltemperatuur van het koelwater bij interne koelmodus. **Waarschuwing:** De fabriekswaarde van 7°C is uitsluitend bedoeld voor fancoils. Verhoog dit bij vloerkoeling direct naar minimaal 18°C! |
+| **Extern setpoint (°C)** | 15 t/m 45 °C (stap 1) | 30 °C | `number.manual_setpoint` | Actieve aanvoertemperatuur wanneer koelmodus op *Extern setpoint* staat. Wordt typisch aangestuurd via Home Assistant automatiseringen op basis van buitentemperatuur of relatieve luchtvochtigheid in de woning. |
