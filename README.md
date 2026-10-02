@@ -2,10 +2,10 @@
   <img src="docs/.vuepress/public/images/logo-512x512.png" alt="OpenAmber Logo" width="128" height="128" />
 </p>
 
-<h1 align="center">OpenAmber Documentatie</h1>
+<h1 align="center">OpenAmber Documentation</h1>
 
 <p align="center">
-  De officiële documentatiebron voor <strong>OpenAmber</strong> — de moderne open-source vervanger voor de verouderde WinCE controller in Itho Daalderop Amber warmtepompen.
+  The official documentation repository for <strong>OpenAmber</strong> — the modern open-source replacement for the legacy WinCE controller in Itho Daalderop Amber heat pumps.
 </p>
 
 <p align="center">
@@ -13,23 +13,23 @@
   <br />
   <a href="https://openamber.nl/devices">Dashboard</a>
   ·
-  <a href="#-lokaal-ontwikkelen">Lokaal ontwikkelen</a>
+  <a href="#-local-development">Local Development</a>
   ·
-  <a href="#-bijdragen">Bijdragen</a>
+  <a href="#-contributing">Contributing</a>
 </p>
 
 ---
 
-## 📖 Over OpenAmber
+## 📖 About OpenAmber
 
-OpenAmber vervangt het trage en gesloten WinCE display van de Itho Daalderop Amber warmtepomp door een moderne ESP32 microcontroller, aangedreven door ESPHome. Hiermee krijg je volledige controle, superieure modulatie en naadloze monitoring.
+OpenAmber replaces the sluggish, closed-source WinCE controller on the Itho Daalderop Amber heat pump with a modern ESP32 microcontroller powered by ESPHome. It grants you complete control, superior modulation, and seamless monitoring.
 
-- ⚙️ **Moderne ESP32 controller:** Gebaseerd op ESPHome met snelle respons en stabiele communicatie.
-- 🏠 **Home Assistant:** Directe en diepe integratie met Home Assistant via de native ESPHome API.
-- 📈 **Vergroot modulatiebereik:** Stabieler moduleren en efficiënter draaien in deellast.
-- 📊 **PID Compressor Modulatie:** Geavanceerde aansturing voor optimaal seizoensrendement.
-- ❄️ **Intelligente defrost herstel:** Geoptimaliseerde logica na ontdooicycli met instelbare boost.
-- 🔓 **100% Open Source:** Volledig transparant onder de GNU General Public License v3.
+- ⚙️ **Modern ESP32 Controller:** Built on ESPHome for rapid responsiveness and rock-solid communication.
+- 🏠 **Home Assistant Integration:** Deep, native integration with Home Assistant via the ESPHome native API.
+- 📈 **Extended Modulation Range:** Broader compressor frequency range for more stable modulation and higher part-load efficiency.
+- 📊 **PID Compressor Modulation:** Advanced PID-based control loop for optimal seasonal efficiency.
+- ❄️ **Smart Defrost Recovery:** Enhanced recovery logic after defrost cycles with an optional boost feature for faster comfort restoration.
+- 🔓 **100% Open Source:** Fully transparent and open under the GNU General Public License v3.
 
 <p align="center">
   <img src="docs/.vuepress/public/images/home.jpg" alt="OpenAmber Interface" width="700" />
@@ -37,70 +37,70 @@ OpenAmber vervangt het trage en gesloten WinCE display van de Itho Daalderop Amb
 
 ---
 
-## 🛠️ Lokaal ontwikkelen
+## 🛠️ Local Development
 
-Deze documentatie is gebouwd met [VuePress v2](https://v2.vuepress.vuejs.org/) en Vite.
+This documentation site is built using [VuePress v2](https://v2.vuepress.vuejs.org/) and Vite.
 
-### Vereisten
+### Prerequisites
 
-- [Node.js](https://nodejs.org/) (versie 18 of hoger)
+- [Node.js](https://nodejs.org/) (version 18 or higher)
 - [npm](https://www.npmjs.com/)
 
-### Starten van de ontwikkelserver
+### Getting Started
 
-1. Clone de repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/Jordi1990/openamber-docs.git
    cd openamber-docs
    ```
 
-2. Installeer de benodigde packages:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Start de lokale ontwikkelserver:
+3. Start the local development server:
    ```bash
    npm run docs:dev
    ```
-   Open vervolgens je browser op `http://localhost:8080`.
+   Then open your browser at `http://localhost:8080`.
 
-4. Documentatie bouwen voor productie:
+4. Build for production:
    ```bash
    npm run docs:build
    ```
-   De gegenereerde statische bestanden worden opgeslagen in `docs/.vuepress/dist/`.
+   The generated static files will be placed in `docs/.vuepress/dist/`.
 
 ---
 
-## 📂 Projectstructuur
+## 📂 Project Structure
 
 ```text
 openamber-docs/
-├── .github/workflows/    # GitHub Actions (automatische deployment naar gh-pages)
-├── docs/                 # Documentatie bronbestanden (Markdown)
-│   ├── .vuepress/        # VuePress configuratie, thema en statische assets
-│   ├── installatie/      # Installatiehandleidingen
-│   ├── index.md          # Homepage van de documentatiewebsite
-│   └── ...               # Overige documentatiepagina's
-├── package.json          # Scripts en dependencies
-└── README.md             # Deze GitHub repository landingspagina
+├── .github/workflows/    # GitHub Actions (automated deployment to gh-pages)
+├── docs/                 # Documentation source files (Markdown)
+│   ├── .vuepress/        # VuePress configuration, theme, and static assets
+│   ├── installatie/      # Installation guides
+│   ├── index.md          # Documentation website homepage
+│   └── ...               # Additional documentation pages
+├── package.json          # Scripts and dependencies
+└── README.md             # This GitHub repository landing page
 ```
 
 ---
 
-## 🤝 Bijdragen
+## 🤝 Contributing
 
-Verbeteringen aan teksten, ontbrekende handleidingen of aanvullingen zijn van harte welkom!
+Contributions, corrections, and additions to the documentation are warmly welcomed!
 
-1. Fork de repository.
-2. Maak een feature branch aan (`git checkout -b feature/nieuwe-pagina`).
-3. Commit je wijzigingen (`git commit -m 'Voeg uitleg toe over ...'`).
-4. Push naar je branch (`git push origin feature/nieuwe-pagina`).
-5. Open een **Pull Request**.
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/new-docs`).
+3. Commit your changes (`git commit -m 'Add documentation on ...'`).
+4. Push to your branch (`git push origin feature/new-docs`).
+5. Open a **Pull Request**.
 
 ---
 
-## 📄 Licentie
+## 📄 License
 
-Gedistribueerd onder de **GNU General Public License v3 (GPL-3.0)**. Zie [`LICENSE`](file:///g:/openamber-docs/LICENSE) voor meer informatie.
+Distributed under the **GNU General Public License v3 (GPL-3.0)**. See [`LICENSE`](file:///g:/openamber-docs/LICENSE) for more details.
