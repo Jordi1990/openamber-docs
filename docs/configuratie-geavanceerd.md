@@ -1,4 +1,4 @@
-﻿---
+---
 title: Geavanceerd
 ---
 
@@ -6,51 +6,71 @@ title: Geavanceerd
 
 Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 
+::: tip
+Deze instellingen zijn alleen zichtbaar wanneer "Geavanceerde instellingen" is ingeschakeld op de Algemeen pagina.
+:::
+
+## Categorie: PID Control Verwarmen
+
+![Verwarmen PID](/images/instellingen-geavanceerd-pid-1.jpg)
+
+| Setting | Home Assistant entiteit | Functie |
+| --- | --- | --- |
+| Verwarmen PID P (Kp) | `number.pid_heat_kp` | Hoger: sneller reageren, lager: rustiger maar trager. Proportionele versterking voor compressorregeling in verwarmingsmodus. |
+| Verwarmen PID I (Ki) | `number.pid_heat_ki` | Hoger: corrigeert afwijking sneller, lager: minder agressief. Integrale term die blijvende fout wegregelt. |
+| Verwarmen PID D (Kd) | `number.pid_heat_kd` | Hoger: dempt schommelingen, lager: directer maar onrustiger. Derivatieve term voor demping rond setpoint. |
+| Verwarmen PID deadband (+/-) | `number.pid_heat_deadband` | Zone rond setpoint waarin PID-output minder wijzigt. Voorkomt onrustig schakelen rond het setpoint. |
+
+## Categorie: PID Control Koelen
+
+![Koelen PID](/images/instellingen-geavanceerd-pid-2.jpg)
+
+| Setting | Home Assistant entiteit | Functie |
+| --- | --- | --- |
+| Koelen PID P (Kp) | `number.pid_cool_kp` | Hoger: sneller reageren, lager: rustiger maar trager. Proportionele versterking voor koelregeling. |
+| Koelen PID I (Ki) | `number.pid_cool_ki` | Hoger: corrigeert afwijking sneller, lager: minder agressief. Integrale term die blijvende koelfout corrigeert. |
+| Koelen PID D (Kd) | `number.pid_cool_kd` | Hoger: dempt schommelingen, lager: directer maar onrustiger. Derivatieve term voor demping rond koelsetpoint. |
+| Koelen PID deadband (+/-) | `number.pid_cool_deadband` | Zone rond setpoint waarin PID-output minder wijzigt. Voorkomt onrustig schakelen rond het koelsetpoint. |
+
+## Categorie: PID Deadband
+
+![Pomp deadband](/images/instellingen-geavanceerd-pid-3.jpg)
+
+| Setting | Home Assistant entiteit | Functie |
+| --- | --- | --- |
+| Verwarmen PID deadband (+/-) | `number.pid_heat_deadband` | Zone rond setpoint waarin PID-output minder wijzigt. Voorkomt onrustig schakelen rond het setpoint. |
+| Koelen PID deadband (+/-) | `number.pid_cool_deadband` | Zone rond setpoint waarin PID-output minder wijzigt. Voorkomt onrustig schakelen rond het koelsetpoint. |
+
+## Categorie: PID Control Pomp P0
+
+![Pomp P0 PID](/images/instellingen-geavanceerd-pid-4.jpg)
+
+| Setting | Home Assistant entiteit | Functie |
+| --- | --- | --- |
+| Pomp P0 PID P (Kp) | `number.pump_p0_pid_kp` | Hoger: sneller meer pompcapaciteit bij oplopende delta-T. |
+| Pomp P0 PID I (Ki) | `number.pump_p0_pid_ki` | Lage integrale correctie voor trage vloerverwarming zonder jagen. |
+| Pomp P0 PID D (Kd) | `number.pump_p0_pid_kd` | Demping bij snelle schommelingen. |
+
 ## Categorie: Bodemplaat
 
 ![Bodemplaat](/images/instellingen-geavanceerd-bodemplaat.jpg)
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Starttemperatuur bodemplaatverwarming | `number.bottomplate_heater_ambient_temperature_start` | Buitentemperatuur waarbij bodemplaatverwarming mag starten. Bij ijsvorming, vochtproblemen of onnodig actief bodemplaatgebruik. Conservatief instellen en gedrag in vochtige/koude dagen evalueren. Te laat starten verhoogt ijsrisico; te vroeg starten verhoogt energieverbruik. |
-| Stophysterese bodemplaatverwarming | `number.bottomplate_heater_ambient_hysteresis_stop` | Hysterese voor uitschakelen van bodemplaatverwarming om snel schakelen te voorkomen. Bij korte aan/uit cycli van bodemplaatverwarming. Genoeg hysterese om schakelen te dempen, maar niet zo groot dat onnodig lang doorverwarmd wordt. Te kleine hysterese geeft pendelen; te grote hysterese kost extra energie. |
+| Bodemplaat | `select.bottomplate_heater_mode` | Kies wanneer actief. Opties: Onbekend, Buitentemperatuur, Tijdens defrost. |
+| Starttemperatuur bodemplaat | `number.bottomplate_heater_ambient_temperature_start` | Buitentemperatuur voor inschakelen bodemplaat. Te laat starten verhoogt ijsrisico; te vroeg starten verhoogt energieverbruik. |
+| Stop-hysterese bodemplaat | `number.bottomplate_heater_ambient_hysteresis_stop` | Hysterese voor uitschakelen bodemplaat. Genoeg hysterese om schakelen te dempen, maar niet zo groot dat onnodig lang doorverwarmd wordt. |
 
-## Categorie: Defrost start
+## Categorie: Defrost
 
-![Defrost 1](/images/instellingen-geavanceerd-defrost-1.jpg)
-
-| Setting | Home Assistant entiteit | Functie |
-| --- | --- | --- |
-| Defrost start drempel 1 | `number.enter_defrost_temperature` | Eerste drempel voor starten van ontdooicyclus. Bij te laat ontdooien (ijsopbouw) of te vaak ontdooien. Kleine stapjes met monitoring van buitenunitgedrag. Te agressief verlaagt seizoensrendement; te terughoudend verhoogt ijsrisico. |
-| Defrost start drempel 2 | `number.enter_defrost_temperature_2` | Tweede defroststartniveau voor aanvullende triggerlogica. Alleen in combinatie met analyse van defrostpatroon. Houd logische relatie met drempel 1. Verkeerde combinatie kan onvoorspelbare defrostfrequentie geven. |
-
-## Categorie: Defrost stop
-
-![Defrost 2](/images/instellingen-geavanceerd-defrost-2.jpg)
+![Defrost](/images/instellingen-geavanceerd-defrost-1.jpg)
+![Defrost](/images/instellingen-geavanceerd-defrost-2.jpg)
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Defrost stoptemperatuur | `number.exit_defrost_temperature` | Temperatuurdoel om ontdooicyclus af te ronden. Bij te korte of juist te lange defrostcycli. Zo instellen dat ijs weg is zonder onnodig lang in defrost te blijven. Te laag kan restijs achterlaten; te hoog verlengt cyclus onnodig. |
-| Maximale defrosttijd | `number.max_defrost_time` | Hard limiet op duur van een defrostcyclus. Bij uitzonderlijke weersituaties of beschermingsinstellingen. Alleen voorzichtig aanpassen en effect op veiligheid/comfort beoordelen. Te laag kan incomplete ontdooiing geven; te hoog kan veel energie kosten. |
-
-## Categorie: PID Control Verwarmen
-
-![Verwarmen PID](/images/instellingen-geavanceerd-verwarmenpid.jpg)
-
-| Setting | Home Assistant entiteit | Functie |
-| --- | --- | --- |
-| PID Kp verwarmen | `number.pid_heat_kp` | Proportionele versterking voor compressorregeling in verwarmingsmodus. Bij te trage respons of overshoot rond setpoint. Kleine stappen, steeds meerdere cycli observeren. Te hoog geeft oscillatie; te laag geeft trage regeling. |
-| PID Ki verwarmen | `number.pid_heat_ki` | Integrale term die blijvende fout wegregelt. Bij blijvende afwijking rond setpoint ondanks correcte Kp. Voorzichtig verhogen; let op langzame oscillaties. Te hoog veroorzaakt opbouw en doorschieten. |
-
-## Categorie: PID Control Koelen
-
-![Koelen PID](/images/instellingen-geavanceerd-koelenpid.jpg)
-
-| Setting | Home Assistant entiteit | Functie |
-| --- | --- | --- |
-| PID Kp koelen | `number.pid_cool_kp` | Proportionele versterking voor koelregeling. Bij traag reageren op warmtelast of te schokkerige reactie. In kleine stappen, met aandacht voor comfort en ontvochtiging. Te hoog geeft pendelen; te laag onvoldoende correctie. |
-| PID Ki koelen | `number.pid_cool_ki` | Integrale term die blijvende koelfout corrigeert. Bij structurele afwijking van koelsetpoint. Langzaam tunen en over langere tijd evalueren. Te hoog kan overkoeling en instabiliteit geven. |
-
-
-
-
+| Exit defrost temperatuur | `number.exit_defrost_temperature` | Defrost stoptemperatuur. Zo instellen dat ijs weg is zonder onnodig lang in defrost te blijven. |
+| Maximale ontdooitijd | `number.max_defrost_time` | Maximum duur van een defrost-cyclus. Te laag kan incomplete ontdooiing geven; te hoog kan veel energie kosten. |
+| Defrost starttemperatuur 1 | `number.enter_defrost_temperature` | Eerste drempel voor starten van ontdooicyclus. Te agressief verlaagt seizoensrendement; te terughoudend verhoogt ijsrisico. |
+| Defrost starttemperatuur 2 | `number.enter_defrost_temperature_2` | Tweede defrost startdrempel voor aanvullende triggerlogica. Houd logische relatie met drempel 1. |
+| Defrost starttemperatuur 3 | `number.enter_defrost_temperature_3` | Derde defrost startdrempel. |
+| Defrost starttemperatuur 4 | `number.enter_defrost_temperature_4` | Vierde defrost startdrempel. |

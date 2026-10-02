@@ -1,4 +1,4 @@
-﻿---
+---
 title: Verwarmen
 ---
 
@@ -12,9 +12,9 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Verwarmingsmodus | `select.heat_mode_select` | Schakelt tussen sturing op stooklijn of extern setpoint. Bij integratie met externe regeling of specifieke stooklijnstrategie. Kies stooklijn voor weersafhankelijke basisregeling. |
-| Extern setpoint | `number.manual_setpoint` | Doeltemperatuur voor modus waarin niet op stooklijn maar op vast setpoint geregeld wordt. Bij testbedrijf, afwijkende comfortwens of tijdelijk gedrag buiten normale stooklijn. Gebruik als tijdelijke override, niet als permanente vervanging van goed ingestelde stooklijn. Te hoog setpoint verlaagt COP en vergroot kans op pendelen. |
-| Verwarmen vermogen | `select.heat_compressor_mode` | Begrenst de maximale stand van de compressor tijdens verwarmen. |
+| Verwarmingsmodus | `select.heat_mode_select` | Kies stooklijn of extern aangestuurd setpoint. Bij stooklijn wordt weersafhankelijk geregeld op basis van de ingestelde stooklijnpunten. Bij extern setpoint wordt geregeld op een handmatig ingesteld vast setpoint. |
+| Extern setpoint (°C) | `number.manual_setpoint` | Cv-aanvoertemperatuur bij extern setpoint. Alleen actief wanneer verwarmingsmodus op "Extern setpoint" staat. Te hoog setpoint verlaagt COP en vergroot kans op pendelen. |
+| Verwarmen vermogen | `select.heat_compressor_mode` | Max compressorvermogen bij verwarmen. Opties: Beperkt, Zeer laag, Laag, Gemiddeld, Verhoogd, Hoog, Maximaal. |
 
 ## Categorie: Stooklijn
 
@@ -22,11 +22,11 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Stooklijnpunt bij -10 C | `number.heat_curve_m10` | Water doeltemperatuur bij -10 of lagere buitentemperatuur. |
-| Stooklijnpunt bij 0 C | `number.heat_curve_0` | Water doeltemperatuur bij 0 of lagere buitentemperatuur. |
-| Stooklijnpunt bij +5 C | `number.heat_curve_p5` |Water doeltemperatuur bij 5 of lagere buitentemperatuur. |
-| Stooklijnpunt bij +10 C | `number.heat_curve_p10` | Water doeltemperatuur bij 10 of lagere buitentemperatuur. |
-| Stooklijnpunt bij +15 C | `number.heat_curve_p15` | Water doeltemperatuur vanaf 15 graden buiten temperatuur. |
+| -10°C | `number.heat_curve_m10` | Water doeltemperatuur bij -10°C of lagere buitentemperatuur. |
+| 0°C | `number.heat_curve_0` | Water doeltemperatuur bij 0°C buitentemperatuur. |
+| +5°C | `number.heat_curve_p5` | Water doeltemperatuur bij +5°C buitentemperatuur. |
+| +10°C | `number.heat_curve_p10` | Water doeltemperatuur bij +10°C buitentemperatuur. |
+| +15°C | `number.heat_curve_p15` | Water doeltemperatuur bij +15°C buitentemperatuur. |
 
 ## Categorie: Start/Stop
 
@@ -34,8 +34,8 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Start delta | `number.compressor_start_delta` | Bepaalt hoeveel de temperatuur onder de doelwaarde mag zakken voordat compressorstart wordt toegestaan. Bij te vaak starten of juist te traag reageren op warmtevraag. Kleinere waarde = sneller starten; grotere waarde = rustiger gedrag. Te laag geeft pendelen en meer starts; te hoog geeft traag comfortherstel. |
-| Stop delta | `number.compressor_stop_delta` | Bepaalt overshoot boven setpoint waarbij compressor mag stoppen. Bij doorschieten van aanvoertemperatuur of te lange compressorlooptijden. Begin conservatief en wijzig in kleine stappen. Te laag veroorzaakt korte cycli; te hoog veroorzaakt overshoot en minder comfort. |
+| Start delta (°C) | `number.compressor_start_delta_heating` | Verschil met setpoint om compressor te starten. Kleinere waarde = sneller starten; grotere waarde = rustiger gedrag. Te laag geeft pendelen en meer starts; te hoog geeft traag comfortherstel. |
+| Stop delta (°C) | `number.compressor_stop_delta_heating` | Verschil met setpoint om compressor te stoppen. Te laag veroorzaakt korte cycli; te hoog veroorzaakt overshoot en minder comfort. |
 
 ## Categorie: Noodbedrijf
 
@@ -43,4 +43,4 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Noodbedrijf inschakelen | `switch.emergency_mode_enabled` | Schakelt compressorlogica uit en laat systeem op back-upstrategie draaien. Alleen bij storingen, testwerk of tijdelijk bedrijf zonder normale compressoraansturing. Normaal uit laten. Alleen handmatig inschakelen bij duidelijke aanleiding. Hogere energiekosten, lagere efficiÃ«ntie en mogelijk minder stabiele regeling. |
+| Noodbedrijf | `switch.emergency_mode_enabled` | Schakel de compressor uit en laat alleen het backup-element werken. Alleen inschakelen bij storingen, testwerk of tijdelijk bedrijf zonder normale compressoraansturing. Hogere energiekosten en lagere efficiëntie. |

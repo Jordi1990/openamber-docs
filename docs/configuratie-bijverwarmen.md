@@ -1,8 +1,10 @@
-﻿---
+---
 title: Bijverwarmen
 ---
 
 # Bijverwarmen
+
+Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 
 ## Categorie: Algemeen
 
@@ -10,8 +12,8 @@ title: Bijverwarmen
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Defrost boost temperatuurgrens | `number.defrost_backup_heater_boost_temperature_sensor` | Buitentemperatuurgrens waaronder na defrost extra bijverwarming mag ondersteunen. Bij comfortdip na ontdooicyclus of te agressief bijverwarmen. Alleen aanpassen met seizoensdata; stapgrootte klein houden. Te hoge grens geeft vaak onnodig elektrisch bijverwarmen. |
-| Degree-minutes drempel voor bijverwarming | `number.backup_heater_degmin_threshold` | Bepaalt bij welk opgeteld temperatuurtekort bijverwarming mag inschakelen. Bij te laat of te vroeg inschakelen van back-upverwarming. Hogere drempel = terughoudender bijverwarmen; lagere drempel = sneller ingrijpen. Te laag verhoogt elektriciteitsverbruik; te hoog kan comfortverlies geven. |
+| Backup element | `select.backup_heating_mode` | Extern is voor Hybride opstellingen. Opties: Intern verwarmingselement, Externe backup verwarming. |
+| Boosttemperatuur bij ontdooien | `number.defrost_backup_heater_boost_temperature_sensor` | Buitentemperatuur voor backup bij ontdooien. Onder deze buitentemperatuur mag na defrost extra bijverwarming ondersteunen. |
 
 ## Categorie: Verwarmen
 
@@ -19,12 +21,13 @@ title: Bijverwarmen
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Backup min drempel | `number.backup_min_threshold` | Graadminuten drempel voor backup element tijdens verwarmen |
+| Backup °min drempel | `number.backup_heater_degmin_threshold` | Graadminuten drempel voor backup element tijdens verwarmen. Hogere drempel = terughoudender bijverwarmen; lagere drempel = sneller ingrijpen. |
+
 ## Categorie: Tapwater
 
 ![Tapwater](/images/instellingen-bijverwarmen-tapwater.jpg)
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Min. verwarmsnelheid | `number.backup_heating_min_output` | Minsteverwarmsnelheid van pomp during warmte opvraging. |
-| Backupvertraging | `number.backup_delay_time_min` | Tijd onder minimale verwarmsnelheid voordat backup inschakelt. |
+| Min. verwarmsnelheid | `number.dhw_backup_min_avg_rate` | Minimale Tapwater-verwarmsnelheid; lager schakelt backup in. |
+| Backupvertraging | `number.dhw_backup_min_avg_rate_delay_minutes` | Tijd onder minimale verwarmsnelheid voordat backup inschakelt. |

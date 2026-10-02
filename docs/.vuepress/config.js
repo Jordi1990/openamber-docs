@@ -58,7 +58,6 @@ export default defineUserConfig({
             '/configuratie-tapwater.html',
             '/configuratie-pomp.html',
             '/configuratie-bijverwarmen.html',
-            '/configuratie-vorstbescherming.html',
             '/configuratie-geavanceerd.html',
             '/configuratie-smartgrid.html',
             '/configuratie-thermostaat.html',
