@@ -1,0 +1,1 @@
+var e=`/images/itho-module-install.png`;export{e as t};
