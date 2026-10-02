@@ -1,0 +1,25 @@
+.vp-home {
+  display: flex;
+  flex-direction: column;
+}
+
+.vp-home > [vp-content] {
+  order: 2;
+  width: 100%;
+  max-width: 720px;
+  margin: 1rem auto 3rem;
+
+  p {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.vp-home > .vp-features {
+  order: 3;
+}

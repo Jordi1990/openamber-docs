@@ -29,3 +29,7 @@ features:
   - title: ❄️ Intelligente defrost herstel
     details: Verbeterde logica voor temperatuurherstel na ontdooien, met optionele boost functie voor sneller comfort
 
+---
+
+![OpenAmber home scherm](/images/home.jpg)
+
