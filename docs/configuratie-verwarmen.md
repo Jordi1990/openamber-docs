@@ -37,3 +37,10 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 | Start delta | `number.compressor_start_delta` | Bepaalt hoeveel de temperatuur onder de doelwaarde mag zakken voordat compressorstart wordt toegestaan. Bij te vaak starten of juist te traag reageren op warmtevraag. Kleinere waarde = sneller starten; grotere waarde = rustiger gedrag. Te laag geeft pendelen en meer starts; te hoog geeft traag comfortherstel. |
 | Stop delta | `number.compressor_stop_delta` | Bepaalt overshoot boven setpoint waarbij compressor mag stoppen. Bij doorschieten van aanvoertemperatuur of te lange compressorlooptijden. Begin conservatief en wijzig in kleine stappen. Te laag veroorzaakt korte cycli; te hoog veroorzaakt overshoot en minder comfort. |
 
+## Categorie: Noodbedrijf
+
+![Noodbedrijf](/images/instellingen-verwarmen-noodbedrijf.jpg)
+
+| Setting | Home Assistant entiteit | Functie |
+| --- | --- | --- |
+| Noodbedrijf inschakelen | `switch.emergency_mode_enabled` | Schakelt compressorlogica uit en laat systeem op back-upstrategie draaien. Alleen bij storingen, testwerk of tijdelijk bedrijf zonder normale compressoraansturing. Normaal uit laten. Alleen handmatig inschakelen bij duidelijke aanleiding. Hogere energiekosten, lagere efficiÃ«ntie en mogelijk minder stabiele regeling. |

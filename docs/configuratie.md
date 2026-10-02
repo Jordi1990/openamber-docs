@@ -30,7 +30,6 @@ Per instellingenpagina staat per categorie een compacte tabel met:
 | Tapwater | [Tapwater](./configuratie-tapwater.html) |
 | Pomp | [Pomp](./configuratie-pomp.html) |
 | Bijverwarmen | [Bijverwarmen](./configuratie-bijverwarmen.html) |
-| Vorstbescherming | [Vorstbescherming](./configuratie-vorstbescherming.html) |
 | Geavanceerd | [Geavanceerd](./configuratie-geavanceerd.html) |
 | SmartGrid | [SmartGrid](./configuratie-smartgrid.html) |
 | Thermostaat | [Thermostaat](./configuratie-thermostaat.html) |

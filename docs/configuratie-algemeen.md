@@ -8,7 +8,7 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 
 ## Categorie: Systeem
 
-![Systeem](/images/instellingen-algmeen-systeem.jpg)
+![Systeem](/images/instellingen-algemeen-systeem.jpg)
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
@@ -17,14 +17,19 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 | Geavanceerde instellingen | `switch.advanced_settings_enabled` | Maakt gevanceerde instellingen zichtbaar in het instellingen menu. |
 | Analytics ingeschakeld | `switch.analytics_enabled_switch` | Als je dit inschakelt, wordt elke 5 minuten diagnose-data naar [https://openamber.nl/devices](https://openamber.nl/devices) verstuurd. Deze data is anoniem en wordt gebruikt om inzicht te geven in alle OpenAmber-gebruikers die analytics hebben ingeschakeld. |
 
-## Categorie: Analytics
+## Categorie: Mengventielen
 
-![Systeem](/images/instellingen-algmeen-analytics.jpg)
+![Mengventielen](/images/instellingen-algemeen-mengventielen-1.jpg)
+![Mengventielen](/images/instellingen-algemeen-mengventielen-2.jpg)
 
 | Setting | Home Assistant entiteit | Functie |
 | --- | --- | --- |
-| Analytics versturen | `switch.analytics_enabled_switch` | Als je dit inschakelt, wordt elke 5 minuten diagnose-data naar [https://openamber.nl/devices](https://openamber.nl/devices) verstuurd. Deze data is anoniem en wordt gebruikt om inzicht te geven in alle OpenAmber-gebruikers die analytics hebben ingeschakeld. |
-
+|Mengventiel zone 1 aanwezig| `switch.mengventiel_zone_1_aanwezig` | Activeert of de installatie mengventiel logica en gerelateerde tabs gebruikt. Alleen bij installaties zonder actief mengventiel of tijdens diagnose. Aan voor systemen met mengventiel/kraan logica. Uitzetten op een actief mengventiel schakelt mengventiel regeling uit. |
+|Minimum positie zone 1 | `number.min_pos_zone_1` |  |
+|Maximum positie zone 1 | `number.max_pos_zone_1` |  |
+|Mengventiel zone 2 aanwezig| `switch.mengventiel_zone_2_aanwezig` | Activeert of de installatie mengventiel logica en gerelateerde tabs gebruikt. Alleen bij installaties zonder actief mengventiel of tijdens diagnose. Aan voor systemen met mengventiel/kraan logica. Uitzetten op een actief mengventiel schakelt mengventiel regeling uit. |
+|Minimum positie zone 2 | `number.min_pos_zone_2` |  |
+|Maximum positie zone 2 | `number.max_pos_zone_2` |  |
 ## Categorie: Sensor kalibratie
 
 ![Sensor kalibratie](/images/instellingen-algemeen-sensor-kalibratie-1.jpg)
@@ -37,14 +42,6 @@ Alle instellingen op deze pagina zijn ook via Home Assistant aanpasbaar.
 | CV-aanvoertemperatuur offset | `number.tc_offset` | Corrigeert de CV-aanvoertemperatuur sensor (Tc) met een vaste offset. |
 | CV-retourtemperatuur (Tui) offset | `number.tui_offset` | Corrigeert de CV-retourtemperatuur (Tui) in de buiten unit met een vaste offset. |
 | CV-aanvoertemperatuur (Tuo) offset | `number.tuo_offset` | Corrigeert de CV-aanvoertemperatuur (Tuo) in de buiten unit met een vaste offset. |
-
-## Categorie: Noodbedrijf
-
-![Noodbedrijf](/images/instellingen-algemeen-noodbedrijf.jpg)
-
-| Setting | Home Assistant entiteit | Functie |
-| --- | --- | --- |
-| Noodbedrijf inschakelen | `switch.emergency_mode_enabled` | Schakelt compressorlogica uit en laat systeem op back-upstrategie draaien. Alleen bij storingen, testwerk of tijdelijk bedrijf zonder normale compressoraansturing. Normaal uit laten. Alleen handmatig inschakelen bij duidelijke aanleiding. Hogere energiekosten, lagere efficiÃ«ntie en mogelijk minder stabiele regeling. |
 
 ## Categorie: Opties
 
