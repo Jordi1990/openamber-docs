@@ -14,6 +14,15 @@ export default defineUserConfig({
     // Gebruik het lokale logo in de public map
     logo: '/images/icon.png',
 
+    repo: 'Jordi1990/openamber-docs',
+    docsRepo: 'https://github.com/Jordi1990/openamber-docs',
+    docsBranch: 'main',
+    docsDir: 'docs',
+    editLink: true,
+    editLinkText: 'Bewerk deze pagina op GitHub',
+    lastUpdatedText: 'Laatst bijgewerkt',
+    contributorsText: 'Bijdragers',
+
     navbar: [
       { text: 'Home', link: '/' },
       { text: 'Aan de slag', link: '/aan-de-slag.html' },
