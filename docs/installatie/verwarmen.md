@@ -22,8 +22,8 @@ Ga naar [Instellingen - Thermostaat](./configuratie-thermostaat.html) en kies:
 
 Stel in op [Instellingen - Verwarmen](./configuratie-verwarmen.html):
 
-1. `number.compressor_start_delta`.
-2. `number.compressor_stop_delta`.
+1. `number.compressor_start_delta_heating`.
+2. `number.compressor_stop_delta_heating`.
 
 Richtlijn:
 

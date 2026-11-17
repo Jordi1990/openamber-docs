@@ -28,6 +28,7 @@ Volg bij het inregelen van de koelfunctie deze volgorde:
 
 | Instelling | Opties / Bereik | Standaard | Home Assistant entiteit | Beschrijving |
 | :-- | :-- | :-- | :-- | :-- |
+| **Koelen toegestaan** | Aan / Uit | Uit | `switch.cooling_allowed_switch` | Hoofdschakelaar voor de koelfunctie. Zolang deze uit staat wordt koelvraag (intern of extern signaal) genegeerd. Koeling is daarnaast alleen actief wanneer er geen fouten zijn, SG Ready niet blokkeert en er geen verwarmingsvraag is. |
 | **Koelen vermogen** | Beperkt / Zeer laag / Laag / Gemiddeld / Verhoogd / Hoog / Maximaal | Maximaal | `select.cool_compressor_mode` | Begrenzing van het maximale compressorvermogen tijdens koelen. Een te hoge stand kan leiden tot snelle onderschrijding van de condensatiegrens en korte cycli; een te lage stand geeft trage koeling. |
 | **Start delta (°C)** | 0.1 t/m 10.0 °C (stap 0.1) | 3.0 °C | `number.compressor_start_delta_cooling` | Aantal graden dat de watertemperatuur boven het actieve koelsetpoint moet stijgen voordat de compressor start. |
 | **Stop delta (°C)** | 0.1 t/m 10.0 °C (stap 0.1) | 5.0 °C | `number.compressor_stop_delta_cooling` | Aantal graden dat de watertemperatuur onder het koelsetpoint mag zakken voordat de compressor stopt. |

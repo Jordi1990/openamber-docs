@@ -19,7 +19,7 @@ Belangrijke OpenAmber-entiteitstypen:
 1. Schakelaars: `switch.*`
 2. Numerieke instellingen: `number.*`
 3. Keuzes: `select.*`
-4. Tijdwaarden (schema): `time.*`
+4. Tijdwaarden (schema): `datetime.*`
 
 ### Essentiele randvoorwaarden
 

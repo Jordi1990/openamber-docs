@@ -20,7 +20,7 @@ Open [Instellingen - Tapwater](./configuratie-tapwater.html).
 
 1. `switch.dhw_schedule_enabled_switch` aan of uit.
 2. Dagen selecteren (`switch.dhw_schedule_*_enabled_switch`).
-3. Venster kiezen met `time.dhw_start_time` en `time.dhw_end_time`.
+3. Venster kiezen met `datetime.dhw_start_time` en `datetime.dhw_end_time`.
 
 ## Legionella
 

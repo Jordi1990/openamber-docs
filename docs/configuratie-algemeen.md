@@ -60,6 +60,18 @@ Voer kalibratiewijzigingen altijd uit met kleine stappen van 0.1°C en evalueer 
 
 ---
 
+## Categorie: Stille modus
+
+Met de stille modus beperk je het maximale compressorvermogen gedurende een ingesteld tijdvenster, bijvoorbeeld 's nachts als de buitenunit geluidsoverlast veroorzaakt.
+
+| Instelling | Opties / Bereik | Standaard | Home Assistant entiteit | Beschrijving |
+| :-- | :-- | :-- | :-- | :-- |
+| **Stille modus actief** | Aan / Uit | Uit | `switch.silent_mode_enabled_switch` | Zet de stille modus aan. De beperking geldt alleen binnen het onderstaande tijdvenster; daarbuiten draait de warmtepomp zonder extra begrenzing. |
+| **Starttijd / Eindtijd** | Tijd | - | `datetime.silent_mode_start_time` / `datetime.silent_mode_end_time` | Tijdvenster van de stille modus. Het venster mag over middernacht lopen (bijv. 22:00 - 06:00). |
+| **Stille modus vermogen** | Beperkt / Zeer laag / Laag / Gemiddeld / Verhoogd / Hoog / Maximaal | Gemiddeld | `select.silent_mode_compressor_mode` | Maximale compressorstand zolang de stille modus actief is. Werkende regelfuncties (verwarmen, tapwater, koelen) blijven binnen deze begrenzing; een lagere stand maakt de unit stiller ten koste van het leverbare vermogen. |
+
+---
+
 ## Categorie: Opties
 
 ![Opties](/images/instellingen-algemeen-opties.jpg)

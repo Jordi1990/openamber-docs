@@ -6,7 +6,7 @@ title: Firmware flashen
 
 Je hebt verschillende manieren om de OpenAmber-firmware op het board te zetten:
 
-1. **Release build flashen via web flasher of ESPHome-Flasher**: snelste route voor de meeste gebruikers. Gebruik de juiste firmwarevariant (`openamber-esp32s3` of `openamber-esp32`).
+1. **Release build flashen via web flasher of ESPHome-Flasher**: snelste route voor de meeste gebruikers. Gebruik de juiste firmwarevariant (`openamber-esp32s3`, `openamber-esp32p4` of `openamber-esp32`). Op een blanco board flash je het `*.factory.bin` bestand; een `*.ota.bin` is alleen voor een upgrade van een bestaande installatie.
 2. **Lokaal flashen via USB**: sluit het board met een USB-C kabel aan op je computer en flash de release build via ESPHome-Flasher of een vergelijkbare tool.
 3. **Custom build via ESPHome**: download de configuratie en bouw zelf een aangepaste firmware, bijvoorbeeld om eigen sensoren toe te voegen.
 4. **OTA-update**: alleen relevant als OpenAmber al draait op het board en je wilt upgraden naar een nieuwere release.

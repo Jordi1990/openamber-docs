@@ -18,3 +18,19 @@ Alle onderstaande instellingen zijn via het touchscreen en via Home Assistant aa
 | :-- | :-- | :-- | :-- | :-- |
 | **Verwarmingsboost (°C)** | 0 t/m 10 °C (stap 1) | 5 °C | `number.sg_ready_heating_boost_temperature_number` | Extra verhoging van de cv-aanvoertemperatuur bovenop het actieve stooklijn- of handmatige setpoint wanneer de SG Ready boost-status actief is. Hiermee wordt de thermische massa van de vloer optimaal opgeladen als energiebuffer. Beperk de boost om oververhitting in huis te voorkomen. |
 | **Tapwater boost (°C)** | 0 t/m 25 °C (stap 1) | 5 °C | `number.sg_ready_dhw_boost_temperature_number` | Extra verhoging van de boilertemperatuur bovenop het normale tapwatersetpoint bij SG Ready boost. Hiermee laadt de boiler maximaal door met goedkope stroom, waardoor later op de dag geen dure piekstroom nodig is. |
+
+---
+
+## Categorie: SG Ready modus
+
+| Instelling | Opties / Bereik | Standaard | Home Assistant entiteit | Beschrijving |
+| :-- | :-- | :-- | :-- | :-- |
+| **SG-Ready modus** | Normaal / Blokkeren / Boost / Max boost | Normaal | `select.sg_ready_mode_select` | Bepaalt hoe OpenAmber reageert op de SGA-/SGB-inputs van de binnenunit. Deze instelling is niet op het touchscreen beschikbaar en wordt via Home Assistant of de webinterface gewijzigd. |
+
+---
+
+## Categorie: EEBUS
+
+| Instelling | Opties / Bereik | Standaard | Home Assistant entiteit | Beschrijving |
+| :-- | :-- | :-- | :-- | :-- |
+| **EEBUS ingeschakeld** | Aan / Uit | Uit | `switch.eebus_enabled_switch` | Zet de EEBUS-stapel aan (Secure SEP2 via mDNS/SHIP) waarmee OpenAmber staat en metingen exposeert aan een energiemanagementsysteem (CEM): MPC (vermogen/energie), MDT (boilertemperatuur), OHPCF (boost in opdracht van de CEM bij zonne-overschot) en LPC (vermogensbegrenzing/dimming conform §14a EnWG). |

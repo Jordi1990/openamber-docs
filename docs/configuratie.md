@@ -74,7 +74,7 @@ De entiteiten in OpenAmber zijn logisch opgebouwd volgens standaarden van Home A
 - **`switch.*`**: Aan/uit-schakelaars voor functies, schema's en componenten (bijv. `switch.dhw_enabled_switch`).
 - **`number.*`**: Numerieke instellingen, offsets, temperaturen en PID-parameters (bijv. `number.dhw_setpoint_temperature`).
 - **`select.*`**: Keuzemenu's met vooraf gedefinieerde opties (bijv. `select.heat_mode_select`).
-- **`time.*`**: Tijdstippen voor schema's en vensters (bijv. `time.dhw_start_time`).
+- **`datetime.*`**: Tijdstippen voor schema's en vensters (bijv. `datetime.dhw_start_time`).
 - **`sensor.*`**: Meetwaarden en realtime statussen afkomstig van sensoren of berekeningen.
 
 ::: warning Pas op met uiterste waarden

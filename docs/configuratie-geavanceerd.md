@@ -85,13 +85,17 @@ Deze instellingen worden direct gecommuniceerd met de EEPROM holding registers v
 | :-- | :-- | :-- | :-- | :-- |
 | **Bodemplaat** | Onbekend / Buitentemperatuur / Tijdens defrost | Tijdens defrost | `select.bottomplate_heater_mode` | Bepaalt wanneer het lekbakelement inschakelt (register 3236). Bij `Tijdens defrost` schakelt het element in zodra de ontdooicyclus start en stopt het 2 minuten na afloop. Bij `Buitentemperatuur` schakelt het in onder de ingestelde buitentemperatuur. |
 | **Starttemperatuur bodemplaat** | -10 t/m 10 °C (stap 1) | 4 °C *(34 raw)* | `number.bottomplate_heater_ambient_temperature_start` | Buitentemperatuurdrempel waaronder het bodemplaatelement inschakelt in buitentemperatuurmodus (register 3237, raw waarde = T + 30). |
-| **Stop-hysterese bodemplaat** | 1 t/m 10 °C (stap 1) | 3 °C | `number.bottomplate_heater_ambient_hysteresis_stop` | Hysterese voor het uitschakelen van de bodemplaatverwarming (register 3238). Uitschakeling vindt plaats bij `Starttemperatuur + Hysterese`. |
+| **Stop-hysterese bodemplaat** | 1 t/m 10 °C (stap 1) | 3 °C | `number.bottomplate_heater_ambient_hysteresis_stop` | Hysterese voor het uitschakelen van de bodemplaatverwarming (register 3238). Uitschakeling vindt plaats bij `Starttemperatuur + Hysterese`. Deze entiteit is standaard gedeactiveerd in Home Assistant. |
 
 ---
 
 ## Categorie: Defrost
 
 De ontdooiparameters regelen het gedrag van de buitenunit bij rijpvorming op de verdamper. Deze waarden corresponderen direct met de holding registers van de buitenunit.
+
+::: warning Standaard gedeactiveerd in Home Assistant
+De entiteiten in deze tabel zijn standaard gedeactiveerd in Home Assistant (`disabled_by_default`). Zet ze aan via **Instellingen → Entiteiten** (toon uitgeschakelde entiteiten) om ze te gebruiken.
+:::
 
 ![Defrost](/images/instellingen-geavanceerd-defrost-1.jpg)
 ![Defrost](/images/instellingen-geavanceerd-defrost-2.jpg)
@@ -101,6 +105,19 @@ De ontdooiparameters regelen het gedrag van de buitenunit bij rijpvorming op de 
 | **Exit defrost temperatuur** | 0 t/m 25 °C (stap 1) | 17 °C *(47 raw)* | `number.exit_defrost_temperature` | Temperatuur van de buitenwarmtewisselaar waarop de ontdooicyclus als voltooid wordt beschouwd en de vierwegklep terugschakelt naar verwarmen (register 3277, raw waarde = T + 30). |
 | **Maximale ontdooitijd** | 1 t/m 30 min (stap 1) | 8 min | `number.max_defrost_time` | Maximale tijdsduur van een ontdooicyclus ter beveiliging tegen vastlopende defrost-cycli (register 3278). |
 | **Defrost starttemperatuur 1** | -15 t/m 5 °C (stap 1) | -3 °C *(27 raw)* | `number.enter_defrost_temperature` | Primaire temperatuurdrempel van de verdamper om de automatische ontdooiprocedure te starten (register 3276, raw waarde = T + 30). |
-| **Defrost starttemperatuur 2** | -3.0 t/m 3.0 °C (stap 0.1) | 0.0 °C | `number.enter_defrost_temperature_2` | Secundaire ontdooitemperatuurdrempel (register 3336). |
-| **Defrost starttemperatuur 3** | -10.0 t/m -3.0 °C (stap 0.1) | -5.0 °C | `number.enter_defrost_temperature_3` | Derde ontdooitemperatuurdrempel voor lage omgevingstemperaturen (register 3337). |
-| **Defrost starttemperatuur 4** | -10.0 t/m -3.0 °C (stap 0.1) | -7.0 °C | `number.enter_defrost_temperature_4` | Vierde ontdooitemperatuurdrempel voor strenge vorstcondities (register 3338). |
+| **Defrost starttemperatuur 2** | -15 t/m 0 °C (stap 1) | -3 °C *(27 raw)* | `number.enter_defrost_temperature_2` | Secundaire ontdooitemperatuurdrempel van de verdamper, geldend bij buitentemperaturen tussen -3 en 3 °C (register 3336, raw waarde = T + 30). |
+| **Defrost starttemperatuur 3** | -15 t/m 0 °C (stap 1) | -5 °C *(25 raw)* | `number.enter_defrost_temperature_3` | Derde ontdooitemperatuurdrempel, geldend bij buitentemperaturen tussen -10 en -3 °C (register 3337, raw waarde = T + 30). |
+| **Defrost starttemperatuur 4** | -15 t/m 0 °C (stap 1) | -12 °C *(18 raw)* | `number.enter_defrost_temperature_4` | Vierde ontdooitemperatuurdrempel voor strenge vorst (Ta < -10 °C) (register 3338, raw waarde = T + 30). |
+
+---
+
+## Categorie: Compressor
+
+| Instelling | Opties / Bereik | Standaard | Home Assistant entiteit | Beschrijving |
+| :-- | :-- | :-- | :-- | :-- |
+| **Compressor hysterese** | 0.1 t/m 2.0 °C (stap 0.1) | 1.0 °C | `number.compressor_hysteresis` | Zolang de regeltemperatuur binnen deze afstand van het setpoint blijft, wordt de huidige compressorstand vastgehouden. Voorkomt dat de PID-uitgang binnen de deadband de compressor tussen twee aangrenzende vermogensstanden laat schakelen. |
+| **Buitenunit optimalisaties** | Aan / Uit | Uit | `switch.outdoor_unit_optimizations_enabled` | Schrijft bij het starten de OpenAmber-frequentietabel naar het RAM van de buitenunit (level 1 t/m 10: verwarmen 20/28/36/43/55/63/72/79/85/90 Hz, koelen 20/26/30/36/43/48/55/69/74/82 Hz) en schakelt de eigen begrenzing van de unit per buitentemperatuur uit; OpenAmber past die begrenzing dan zelf toe. De lagere lage-stand frequenties geven meer regelruimte bij licht belaste systemen. Wordt overgeslagen bij HPS-buitenunits. |
+
+::: tip Standaard frequentietabel
+Staat **Buitenunit optimalisaties** uit (fabrieksstandaard), dan blijft de standaard frequentietabel van de buitenunit actief; de Hz-waarden per vermogensstand hangen dan af van de firmware van de buitenunit. De vermogensstanden begrenzen altijd alleen het maximum; de PID regelt daarbinnen.
+:::

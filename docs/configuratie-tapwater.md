@@ -37,8 +37,8 @@ Met het weekschema kun je tapwaterverwarming beperken tot specifieke tijden en d
 | :-- | :-- | :-- | :-- | :-- |
 | **Tapwater schema** | Aan / Uit | Uit | `switch.dhw_schedule_enabled_switch` | Schakelt de schemabewaking in. Indien uitgeschakeld mag de boiler op elk moment van de dag laden zodra de temperatuur onder `setpoint - herstart delta` daalt. |
 | **Ma t/m Zo** | Aan / Uit | Aan (per dag) | `switch.dhw_schedule_monday_enabled_switch` t/m `...sunday_enabled_switch` | Bepaalt per weekdag of het tijdschema actief is. Zet een dag uit om op die dag geen geplande tapwaterproductie toe te staan. |
-| **Starttijd** | 00:00 t/m 23:30 (stap 30 min) | 10:00 | `time.dhw_start_time` | Begintijd van het toegestane laadvenster (bijv. 10:00 uur wanneer zonnepanelen beginnen te leveren). |
-| **Eindtijd** | 00:00 t/m 23:30 (stap 30 min) | 17:00 | `time.dhw_end_time` | Eindtijd van het laadvenster. Ook vensters die over middernacht lopen worden volledig ondersteund (bijv. 22:00 tot 06:00). |
+| **Starttijd** | 00:00 t/m 23:30 (stap 30 min) | 10:00 | `datetime.dhw_start_time` | Begintijd van het toegestane laadvenster (bijv. 10:00 uur wanneer zonnepanelen beginnen te leveren). |
+| **Eindtijd** | 00:00 t/m 23:30 (stap 30 min) | 17:00 | `datetime.dhw_end_time` | Eindtijd van het laadvenster. Ook vensters die over middernacht lopen worden volledig ondersteund (bijv. 22:00 tot 06:00). |
 
 ---
 
