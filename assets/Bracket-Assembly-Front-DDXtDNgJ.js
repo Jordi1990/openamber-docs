@@ -1,0 +1,1 @@
+var e=`/images/Bracket-Assembly-Front.jpeg`;export{e as t};
